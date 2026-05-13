@@ -1,0 +1,290 @@
+{
+  "generatedAt": "2026-05-13T01:55:41.345Z",
+  "traveler": {
+    "magazines": [
+      {
+        "issueNumber": "26",
+        "title": "Winter Magic",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/26/cover-traveler-issue-26-ginta.jpg",
+        "link": "https://influenttraveler.com/issue/26",
+        "flipbookUrl": "https://influenttraveler.com/issue/26"
+      },
+      {
+        "issueNumber": "25",
+        "title": "Türkiye",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/25/cover-traveler-issue-25-Sofia.jpeg",
+        "link": "https://influenttraveler.com/issue/25",
+        "flipbookUrl": "https://influenttraveler.com/issue/25"
+      },
+      {
+        "issueNumber": "24",
+        "title": "Greek Isles",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/24/cover-traveler-issue-24-Aurelie.jpeg",
+        "link": "https://influenttraveler.com/issue/24",
+        "flipbookUrl": "https://influenttraveler.com/issue/24"
+      },
+      {
+        "issueNumber": "23",
+        "title": "The Emirates",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/23/cover-traveler-issue-23-Kiana.jpeg",
+        "link": "https://influenttraveler.com/issue/23",
+        "flipbookUrl": "https://influenttraveler.com/issue/23"
+      },
+      {
+        "issueNumber": "22",
+        "title": "Bali",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/22/cover-traveler-issue-22-Alice-deren.jpeg",
+        "link": "https://influenttraveler.com/issue/22",
+        "flipbookUrl": "https://influenttraveler.com/issue/22"
+      },
+      {
+        "issueNumber": "21",
+        "title": "México",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/21/cover-traveler-issue-21-Shakti-Shunmugam.jpeg",
+        "link": "https://influenttraveler.com/issue/21",
+        "flipbookUrl": "https://influenttraveler.com/issue/21"
+      },
+      {
+        "issueNumber": "20",
+        "title": "Wild Wild West",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/20/cover-traveler-issue-20-Casey.jpeg",
+        "link": "https://influenttraveler.com/issue/20",
+        "flipbookUrl": "https://influenttraveler.com/issue/20"
+      },
+      {
+        "issueNumber": "19",
+        "title": "French Trip",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/19/cover-traveler-issue-19-Alesia.jpeg",
+        "link": "https://influenttraveler.com/issue/19",
+        "flipbookUrl": "https://influenttraveler.com/issue/19"
+      },
+      {
+        "issueNumber": "18",
+        "title": "Miami",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/18/cover-traveler-issue-18-Anya.jpeg",
+        "link": "https://influenttraveler.com/issue/18",
+        "flipbookUrl": "https://influenttraveler.com/issue/18"
+      },
+      {
+        "issueNumber": "17",
+        "title": "Dubai",
+        "coverImage": "https://influenttraveler.com/assets/images/magazine/17/cover-traveler-issue-17-Brooke.jpeg",
+        "link": "https://influenttraveler.com/issue/17",
+        "flipbookUrl": "https://influenttraveler.com/issue/17"
+      }
+    ]
+  },
+  "glamour": {
+    "covers": [
+      {
+        "title": "Yana",
+        "tag": "Glamour",
+        "thumb": "yana-thumb.jpg",
+        "full": "yana.jpg"
+      },
+      {
+        "title": "Natalee",
+        "issue": 5,
+        "tag": "Glamour",
+        "thumb": "n05-natalee-thumb.jpg",
+        "full": "n05-natalee.jpg"
+      },
+      {
+        "title": "Rachel",
+        "issue": 6,
+        "tag": "Glamour",
+        "thumb": "n06-rachel-thumb.jpg",
+        "full": "n06-rachel.jpg"
+      },
+      {
+        "title": "Zarina",
+        "issue": 11,
+        "tag": "Glamour",
+        "thumb": "n11-zarina-thumb.jpg",
+        "full": "n11-zarina.jpg"
+      },
+      {
+        "title": "Skye",
+        "issue": 13,
+        "tag": "Glamour",
+        "thumb": "n13-skye-thumb.jpg",
+        "full": "n13-skye.jpg"
+      },
+      {
+        "title": "Olivia",
+        "issue": 14,
+        "tag": "Glamour",
+        "thumb": "n14-olivia-thumb.jpg",
+        "full": "n14-olivia.jpg"
+      },
+      {
+        "title": "Desiree",
+        "issue": 17,
+        "tag": "Glamour",
+        "thumb": "n17-desiree-thumb.jpg",
+        "full": "n17-desiree.jpg"
+      },
+      {
+        "title": "Tassanique",
+        "issue": 20,
+        "tag": "Glamour",
+        "thumb": "n20-tassanique-thumb.jpg",
+        "full": "n20-tassanique.jpg"
+      },
+      {
+        "title": "Katie",
+        "issue": 22,
+        "tag": "Glamour",
+        "thumb": "n22-katie-thumb.jpg",
+        "full": "n22-katie.jpg"
+      },
+      {
+        "title": "Brooke",
+        "issue": 23,
+        "tag": "Glamour",
+        "thumb": "n23-brooke-thumb.jpg",
+        "full": "n23-brooke.jpg"
+      },
+      {
+        "title": "Daria & Izabela",
+        "issue": 26,
+        "tag": "Glamour",
+        "thumb": "n26-daria-izabela-thumb.jpg",
+        "full": "n26-daria-izabela.jpg"
+      },
+      {
+        "title": "Brooke",
+        "issue": 33,
+        "tag": "Glamour",
+        "thumb": "n33-brooke-thumb.jpg",
+        "full": "n33-brooke.jpg"
+      },
+      {
+        "title": "Paige",
+        "issue": 37,
+        "tag": "Glamour",
+        "thumb": "n37-paige-thumb.jpg",
+        "full": "n37-paige.jpg"
+      },
+      {
+        "title": "Ryann",
+        "issue": 39,
+        "tag": "Glamour",
+        "thumb": "n39-ryann-thumb.jpg",
+        "full": "n39-ryann.jpg"
+      },
+      {
+        "title": "Alina",
+        "issue": 40,
+        "tag": "Glamour",
+        "thumb": "n40-alina-thumb.jpg",
+        "full": "n40-alina.jpg"
+      },
+      {
+        "title": "Trista",
+        "issue": 42,
+        "tag": "Glamour",
+        "thumb": "n42-trista-thumb.jpg",
+        "full": "n42-trista.jpg"
+      },
+      {
+        "title": "Lola",
+        "issue": 45,
+        "tag": "Glamour",
+        "thumb": "n45-lola-thumb.jpg",
+        "full": "n45-lola.jpg"
+      },
+      {
+        "title": "Trista",
+        "issue": 50,
+        "tag": "Glamour",
+        "thumb": "n50-trista-thumb.jpg",
+        "full": "n50-trista.jpg"
+      },
+      {
+        "title": "Daria",
+        "issue": 51,
+        "tag": "Glamour",
+        "thumb": "n51-daria-thumb.jpg",
+        "full": "n51-daria.jpg"
+      },
+      {
+        "title": "Nastya",
+        "issue": 51,
+        "tag": "Glamour",
+        "thumb": "n51-nastya-thumb.jpg",
+        "full": "n51-nastya.jpg"
+      },
+      {
+        "title": "Alison",
+        "issue": 52,
+        "tag": "Glamour",
+        "thumb": "n52-alison-thumb.jpg",
+        "full": "n52-alison.jpg"
+      },
+      {
+        "title": "Anastasia",
+        "issue": 53,
+        "tag": "Glamour",
+        "thumb": "n53-anastasia-thumb.jpg",
+        "full": "n53-anastasia.jpg"
+      },
+      {
+        "title": "Taylor",
+        "issue": 58,
+        "tag": "Glamour",
+        "thumb": "n58-taylor-thumb.jpg",
+        "full": "n58-taylor.jpg"
+      },
+      {
+        "title": "Alexa",
+        "issue": 60,
+        "tag": "Glamour",
+        "thumb": "n60-alexa-thumb.jpg",
+        "full": "n60-alexa.jpg"
+      },
+      {
+        "title": "Victoria",
+        "issue": 61,
+        "tag": "Glamour",
+        "thumb": "n61-victoria-thumb.jpg",
+        "full": "n61-victoria.jpg"
+      },
+      {
+        "title": "Alex & Ananda",
+        "issue": 66,
+        "tag": "Glamour",
+        "thumb": "n66-alex-ananda-thumb.jpg",
+        "full": "n66-alex-ananda.jpg"
+      },
+      {
+        "title": "Marina",
+        "issue": 68,
+        "tag": "Glamour",
+        "thumb": "n68-marina-thumb.jpg",
+        "full": "n68-marina.jpg"
+      },
+      {
+        "title": "Trista",
+        "issue": 70,
+        "tag": "Glamour",
+        "thumb": "n70-trista-thumb.jpg",
+        "full": "n70-trista.jpg"
+      },
+      {
+        "title": "Tatiana",
+        "issue": 72,
+        "tag": "Glamour",
+        "thumb": "n72-tatiana-thumb.jpg",
+        "full": "n72-tatiana.jpg"
+      },
+      {
+        "title": "Anastasiya",
+        "tag": "Glamour",
+        "thumb": "anastasiya-thumb.jpg",
+        "full": "anastasiya.jpg"
+      }
+    ],
+    "basePath": "covers/"
+  }
+}

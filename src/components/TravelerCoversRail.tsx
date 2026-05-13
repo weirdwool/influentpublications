@@ -11,7 +11,7 @@ import {
   magazinesFromMagazinesJsonPayload,
   travelerMagazineCoverUrl,
 } from "../utils/travelerMagazinesFromLatestJson";
-import { TRAVELER_MAGAZINES_JSON_URL } from "../data/travelerEndpoints";
+import { FEED_URL } from "../data/feedEndpoint";
 
 function displayIssueTitle(m: TravelerMagazine): string {
   const raw = m.title.trim();
@@ -77,8 +77,10 @@ export default function TravelerCoversRail(): ReactElement | null {
       let list: TravelerMagazine[] = [];
 
       try {
-        const json = await fetchJson(TRAVELER_MAGAZINES_JSON_URL);
-        list = magazinesFromMagazinesJsonPayload(json);
+        const feed = await fetchJson(FEED_URL);
+        const raw = (feed as Record<string, unknown>).traveler;
+        const travelerData = raw && typeof raw === "object" ? (raw as Record<string, unknown>).magazines : undefined;
+        list = magazinesFromMagazinesJsonPayload(travelerData ?? []);
       } catch {
         list = [];
       }

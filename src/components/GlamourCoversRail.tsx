@@ -6,10 +6,7 @@ import {
   type MouseEvent,
   type ReactElement,
 } from "react";
-import {
-  GLAMOUR_COVERS_JSON_URL,
-  GLAMOUR_COVERS_BASE,
-} from "../data/glamourEndpoints";
+import { FEED_URL, GLAMOUR_COVERS_BASE } from "../data/feedEndpoint";
 
 interface GlamourCover {
   title: string;
@@ -63,14 +60,14 @@ export default function GlamourCoversRail(): ReactElement | null {
     let alive = true;
     setPhase("loading");
 
-    fetch(GLAMOUR_COVERS_JSON_URL, { credentials: "omit" })
+    fetch(FEED_URL, { credentials: "omit" })
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<CoversPayload>;
+        return r.json() as Promise<{ glamour?: CoversPayload }>;
       })
-      .then((data) => {
+      .then((feed) => {
         if (!alive) return;
-        setCovers(data.covers ?? []);
+        setCovers(feed.glamour?.covers ?? []);
         setPhase("done");
       })
       .catch(() => {
