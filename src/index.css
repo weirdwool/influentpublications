@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-125: #f2f1f0;
+  --color-stone-150: #eeedec;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 font-sans;
+    line-height: 1.7;
+  }
+
+  img {
+    @apply block w-full h-full object-cover;
+  }
+}
+
+/* Prose styling for article content */
+.article-prose p {
+  @apply mb-6 text-stone-600 leading-relaxed;
+}
+
+.article-prose p:first-child::first-letter {
+  @apply font-serif text-4xl float-left mr-2 mt-1 text-stone-800 font-semibold;
+}
+
+/* Logo letter fade-in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.8s ease-out forwards;
+}
+
+/* Logo uses Cormorant Garamond — refined serif */
+.font-logo {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Menu overlay — slide in from right */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-fast {
+  animation: fade-in 0.25s ease-out forwards;
+}
+
+/* ── Dark editorial theme for the sticky showcase ────────────────── */
+
+.dark-editorial section {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark-editorial h2 {
+  color: #f5f5f4;
+}
+
+.dark-editorial p {
+  color: #a8a29e;
+}
+
+.dark-editorial [id^="pub-tagline"] {
+  color: #d6d3d1;
+}
+
+.dark-editorial a {
+  color: #d6d3d1;
+  border-color: #57534e;
+}
+
+.dark-editorial a:hover {
+  color: #f5f5f4;
+  border-color: #a8a29e;
+}
+
+.dark-editorial figcaption {
+  color: #78716c;
+}
+
+.dark-editorial header span {
+  color: #78716c;
+}
+
+.dark-editorial div[aria-hidden] {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-editorial figure > div {
+  background-color: #292524;
+}
+
+/* Preserve white text inside video overlays */
+.dark-editorial figure div div p,
+.dark-editorial figure div div span {
+  color: white;
+}
+
+/* Cover-card tile backgrounds */
+.dark-editorial a > div:first-child {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+/* Custom scroll-track */
+.dark-editorial [role="presentation"] {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark-editorial [role="presentation"] > div {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-editorial .animate-pulse {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Extra breathing room below the about / prose text */
+.dark-editorial section > div {
+  padding-bottom: 2rem;
+}
+
+/* Push cover rails — compact on mobile, past the nav column on desktop */
+.dark-editorial .covers-rail-scroll {
+  padding-left: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .dark-editorial .covers-rail-scroll {
+    padding-left: 11rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dark-editorial .covers-rail-scroll {
+    padding-left: 13rem;
+  }
+}
+
+/* Cover rails: native scrollbars hidden; custom bar rendered in React */
+@layer components {
+  .covers-rail-scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .covers-rail-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,5 @@
+# Allow indexing — update sitemap URL to match your live domain if different
+User-agent: *
+Allow: /
+
+Sitemap: https://influentpublications.com/sitemap.xml
