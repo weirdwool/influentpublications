@@ -53,6 +53,12 @@ export default function Footer(): React.ReactElement {
           <p className="text-xs text-stone-600">
             &copy; {new Date().getFullYear()} Influent Publications. All rights reserved.
           </p>
+          <Link
+            to="/terms"
+            className="mt-2 inline-block text-xs text-stone-600 hover:text-stone-400 transition-colors"
+          >
+            Terms &amp; Conditions
+          </Link>
         </div>
       </div>
     </footer>

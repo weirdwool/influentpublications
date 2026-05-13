@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { publicationsInNav } from "../data/siteConfig";
 import Logo from "./Logo";
 
 const navLinkClass =
-  "text-xs font-medium uppercase tracking-[0.14em] py-1 text-stone-500 hover:text-stone-900 transition-colors block";
+  "text-xs font-medium uppercase tracking-[0.14em] py-1 text-stone-500 hover:text-stone-900 transition-colors block cursor-pointer";
 
 export default function Header(): React.ReactElement {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
@@ -15,6 +16,31 @@ export default function Header(): React.ReactElement {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
+
+  const showcaseIds = new Set(publicationsInNav.map((p) => p.id));
+
+  const scrollTo = useCallback(
+    (id: string) => {
+      setMobileMenuOpen(false);
+
+      const go = () => {
+        window.dispatchEvent(new CustomEvent("nav-scroll", { detail: id }));
+
+        if (!showcaseIds.has(id)) {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+
+      if (window.location.pathname !== "/") {
+        navigate("/");
+        requestAnimationFrame(go);
+      } else {
+        go();
+      }
+    },
+    [navigate, showcaseIds],
+  );
 
   return (
     <header className="bg-stone-50">
@@ -26,24 +52,25 @@ export default function Header(): React.ReactElement {
         <div className="flex justify-center items-center py-3.5 relative">
         {/* Desktop nav — hidden on small screens */}
         <nav className="hidden min-[1200px]:flex justify-center gap-10">
-          <Link to="/#about" className={navLinkClass}>
+          <button type="button" onClick={() => scrollTo("about")} className={navLinkClass}>
             About
-          </Link>
+          </button>
           {publicationsInNav.map((pub) => (
-            <Link
+            <button
               key={pub.id}
-              to={`/#${pub.id}`}
+              type="button"
+              onClick={() => scrollTo(pub.id)}
               className={navLinkClass}
             >
               {pub.name}
-            </Link>
+            </button>
           ))}
-          <Link to="/#contact" className={navLinkClass}>
+          <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
             Subscribe
-          </Link>
-          <Link to="/#contact" className={navLinkClass}>
+          </button>
+          <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
             Contact
-          </Link>
+          </button>
         </nav>
 
         {/* Burger — always visible on the right */}
@@ -81,37 +108,25 @@ export default function Header(): React.ReactElement {
                 </button>
               </div>
               <nav className="flex flex-col gap-6 pt-6">
-                <Link
-                  to="/#about"
-                  className={navLinkClass}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <button type="button" onClick={() => scrollTo("about")} className={navLinkClass}>
                   About
-                </Link>
+                </button>
                 {publicationsInNav.map((pub) => (
-                  <Link
+                  <button
                     key={pub.id}
-                    to={`/#${pub.id}`}
+                    type="button"
+                    onClick={() => scrollTo(pub.id)}
                     className={navLinkClass}
-                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {pub.name}
-                  </Link>
+                  </button>
                 ))}
-                <Link
-                  to="/#contact"
-                  className={navLinkClass}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
                   Subscribe
-                </Link>
-                <Link
-                  to="/#contact"
-                  className={navLinkClass}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                </button>
+                <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
                   Contact
-                </Link>
+                </button>
               </nav>
             </div>
           </>

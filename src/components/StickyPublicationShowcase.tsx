@@ -2,6 +2,7 @@ import {
   useRef,
   useState,
   useEffect,
+  useCallback,
   type ReactElement,
 } from "react";
 import { motion } from "framer-motion";
@@ -10,9 +11,15 @@ import type { HomePublicationBlock } from "../data/publicationHomeBrands";
 
 const LG = 1024;
 
-const cardTransition = {
-  duration: 1.0,
-  ease: [0.22, 1, 0.36, 1] as const,
+const fadeOutTransition = {
+  duration: 0.8,
+  ease: [0.4, 0, 0.2, 1] as const,
+};
+
+const fadeInTransition = {
+  duration: 0.8,
+  delay: 0.5,
+  ease: [0.4, 0, 0.2, 1] as const,
 };
 
 export default function StickyPublicationShowcase({
@@ -24,9 +31,17 @@ export default function StickyPublicationShowcase({
   const [active, setActive] = useState(0);
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= LG);
 
-  const exitingRef = useRef(false);
-  const prevYRef = useRef(window.scrollY);
-  const exitTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const scrollToCard = useCallback((i: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const elTop = el.getBoundingClientRect().top + window.scrollY;
+    const scrollable = el.offsetHeight - window.innerHeight;
+    window.scrollTo({
+      top: elTop + (i / blocks.length) * scrollable + 1,
+      behavior: "smooth",
+    });
+  }, [blocks.length]);
 
   /* ── responsive breakpoint ──────────────────────────────────────── */
 
@@ -36,11 +51,30 @@ export default function StickyPublicationShowcase({
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  /* ── menu-click navigation ─────────────────────────────────────── */
+
+  useEffect(() => {
+    const onNavScroll = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (!id) return;
+      const idx = blocks.findIndex((b) => b.id === id);
+      if (idx === -1) return;
+
+      if (isDesktop) {
+        scrollToCard(idx);
+      } else {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    window.addEventListener("nav-scroll", onNavScroll);
+    return () => window.removeEventListener("nav-scroll", onNavScroll);
+  }, [isDesktop, blocks, scrollToCard]);
+
   /* ── scroll-driven card logic (desktop only) ────────────────────── */
 
   useEffect(() => {
     if (!isDesktop) return;
-    prevYRef.current = window.scrollY;
 
     const onScroll = () => {
       const el = containerRef.current;
@@ -54,32 +88,6 @@ export default function StickyPublicationShowcase({
       const into = -rect.top;
       const progress = Math.max(0, Math.min(1, into / scrollable));
 
-      const y = window.scrollY;
-      const delta = y - prevYRef.current;
-      prevYRef.current = y;
-
-      if (exitingRef.current) {
-        if (delta > 4) {
-          exitingRef.current = false;
-          clearTimeout(exitTimerRef.current);
-        }
-        return;
-      }
-
-      const inSticky = rect.top <= 0 && rect.bottom > vh + 1;
-      if (!inSticky) return;
-
-      if (delta < -4 && progress > 0.02) {
-        exitingRef.current = true;
-        const top = y + rect.top;
-        window.scrollTo({ top, behavior: "smooth" });
-        exitTimerRef.current = setTimeout(() => {
-          exitingRef.current = false;
-          setActive(0);
-        }, 800);
-        return;
-      }
-
       const idx = Math.min(
         blocks.length - 1,
         Math.floor(progress * blocks.length),
@@ -88,11 +96,35 @@ export default function StickyPublicationShowcase({
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(exitTimerRef.current);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, [isDesktop, blocks.length]);
+
+  /* ── arrow-key navigation (desktop only) ─────────────────────────── */
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const onKey = (e: KeyboardEvent) => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const inView = rect.top <= 0 && rect.bottom > window.innerHeight;
+      if (!inView) return;
+
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        e.preventDefault();
+        const next = Math.min(active + 1, blocks.length - 1);
+        scrollToCard(next);
+      } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        const prev = Math.max(active - 1, 0);
+        scrollToCard(prev);
+      }
+    };
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isDesktop, active, blocks.length]);
 
   /* ── mobile: plain vertical stack (unchanged) ───────────────────── */
 
@@ -119,17 +151,6 @@ export default function StickyPublicationShowcase({
   }
 
   /* ── desktop: sticky showcase ───────────────────────────────────── */
-
-  const scrollToCard = (i: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const elTop = el.getBoundingClientRect().top + window.scrollY;
-    const scrollable = el.offsetHeight - window.innerHeight;
-    window.scrollTo({
-      top: elTop + (i / blocks.length) * scrollable + 1,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div
@@ -203,10 +224,10 @@ export default function StickyPublicationShowcase({
                 className="dark-editorial absolute inset-0 flex items-center overflow-hidden"
                 animate={{
                   opacity: isCurrent ? 1 : 0,
-                  y: isCurrent ? 0 : 40,
-                  scale: isCurrent ? 1 : 0.97,
+                  y: isCurrent ? 0 : 20,
+                  scale: isCurrent ? 1 : 0.98,
                 }}
-                transition={cardTransition}
+                transition={isCurrent ? fadeInTransition : fadeOutTransition}
                 style={{ pointerEvents: isCurrent ? "auto" : "none" }}
                 aria-hidden={!isCurrent}
               >
