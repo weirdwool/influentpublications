@@ -231,7 +231,7 @@ export default function StickyPublicationShowcase({
                 style={{ pointerEvents: isCurrent ? "auto" : "none" }}
                 aria-hidden={!isCurrent}
               >
-                <div className="w-full pl-44 xl:pl-52 [&>section]:border-b-0 [&_figure_img]:max-h-[42vh]">
+                <div className="w-full pl-44 xl:pl-52 [&>section]:border-b-0 [&_figure_img]:max-h-[52vh]">
                   <PublicationBrandSection
                     block={block}
                     priorityHero={i === 0}

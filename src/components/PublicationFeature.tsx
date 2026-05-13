@@ -75,7 +75,7 @@ function MediaBlock({
 
   const src = optimizedImageUrl(media.src, 1400);
 
-  const coverFigureClass = split ? "mx-auto w-2/3 min-w-0" : figClass;
+  const coverFigureClass = split ? "mx-auto w-4/5 min-w-0" : figClass;
 
   return (
     <figure className={coverFigureClass}>
@@ -181,7 +181,7 @@ export default function PublicationFeature({
   const textForward = block.media.kind === "none";
   const hasAsideMedia = block.media.kind !== "none";
 
-  if (!hasAsideMedia) {
+  if (!hasAsideMedia && !showTitle) {
     return (
       <div className="mx-auto w-full max-w-2xl text-center">
         <FeatureText
@@ -196,12 +196,40 @@ export default function PublicationFeature({
     );
   }
 
+  if (!hasAsideMedia && showTitle) {
+    return (
+      <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8 xl:gap-10">
+        <div className="min-w-0 lg:flex-[2] lg:basis-0 flex items-center justify-center lg:order-1">
+          <div className="select-none text-center uppercase tracking-[0.25em]">
+            <span className="block font-serif text-[2.8rem] font-light leading-none text-stone-500/40 md:text-[3.4rem]">
+              Coming
+            </span>
+            <span className="block font-serif text-[3.6rem] font-light leading-none text-stone-500/40 md:text-[4.4rem]">
+              Soon
+            </span>
+          </div>
+        </div>
+        <div className="min-w-0 lg:flex-[3] lg:basis-0 lg:order-2">
+          <FeatureText
+            block={block}
+            descriptionLineId={descriptionLineId}
+            textForward={textForward}
+            split
+            showTitle={showTitle}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  const isPortrait = block.media.kind === "image";
+
   return (
-    <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8 xl:gap-10">
+    <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8 xl:gap-10">
       <div
-        className={`min-w-0 flex-1 basis-0 lg:max-w-[min(100%,26rem)] xl:max-w-[28rem] ${
-          !mediaOnRight ? "lg:order-2" : ""
-        }`}
+        className={`min-w-0 ${
+          isPortrait ? "lg:flex-[3] lg:basis-0" : "flex-1 basis-0 lg:max-w-[min(100%,26rem)] xl:max-w-[28rem]"
+        } ${!mediaOnRight ? "lg:order-2" : ""}`}
       >
         <FeatureText
           block={block}
@@ -212,7 +240,9 @@ export default function PublicationFeature({
         />
       </div>
 
-      <div className={`min-w-0 flex-1 basis-0 ${!mediaOnRight ? "lg:order-1" : ""}`}>
+      <div className={`min-w-0 ${
+        isPortrait ? "lg:flex-[2] lg:basis-0" : "flex-1 basis-0"
+      } ${!mediaOnRight ? "lg:order-1" : ""}`}>
         <MediaBlock
           media={block.media}
           navTitle={block.navTitle}
