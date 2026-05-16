@@ -1,7 +1,5 @@
 /**
- * Hero video — magazine, books, editorial.
- * "Hands of a woman slowly leafing through a magazine"
- * Mixkit License: https://mixkit.co/license/#videoFree
+ * Hero video — local asset in /public (optimized for web: H.264, CRF 23, faststart).
+ * Source: Anim Influent NB (Jean-Marc FAVRE).
  */
-export const HERO_VIDEO_URL =
-  "https://assets.mixkit.co/videos/41194/41194-720.mp4";
+export const HERO_VIDEO_URL = "/hero-influent-nb.mp4";
