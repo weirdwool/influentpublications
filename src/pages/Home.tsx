@@ -69,21 +69,19 @@ export default function Home(): ReactElement {
       <section id="about" className="max-w-3xl mx-auto px-8 py-20 mb-20 border-b border-stone-200">
         <div className="w-12 h-px bg-stone-400 mb-8" />
         <p className="font-serif text-2xl font-medium text-stone-900 leading-snug tracking-tight mb-6">
-          A curated collective of luxury media brands, each dedicated to the art of living well.
+          A small publishing house for people who still like to sit with a story.
         </p>
         <p className="text-stone-600 leading-relaxed mb-6">
-          Influent Publications is not a publisher in the ordinary sense. We are a boutique house
-          built on a singular conviction: that the finest stories deserve the finest presentation.
-          Every title under our imprint is crafted for a discerning audience — readers who value
-          depth over distraction, quality over quantity, and the enduring pleasure of beautifully
-          told narratives.
+          Influent Publications exists because we think the best writing, photography and editorial
+          design shouldn't have to compete with a feed. Each of our titles is built for readers
+          who would rather slow down than scroll past: fewer issues, longer features, pages worth
+          keeping on the table.
         </p>
         <p className="text-stone-600 leading-relaxed">
-          From the refined world of <span className="font-medium text-stone-800">Influent Traveler</span> to
-          the glamour of style and beauty, from the precision of craft to the pulse of what's next —
-          each publication stands on its own while sharing a common ethos. We believe in the power of
-          curation. We believe in the luxury of attention. And we believe that the best media
-          doesn't merely inform; it elevates.
+          Every title under our roof has its own world, its own voice, its own obsession. Some
+          chase places, others chase light or texture or taste. What ties them together is a
+          refusal to cut corners and a quiet belief that media done with real care still finds
+          the people it was made for.
         </p>
       </section>
 

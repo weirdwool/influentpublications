@@ -65,10 +65,10 @@ export const homePublicationBlocks: HomePublicationBlock[] = [
   },
   {
     id: "mjolnr",
-    navTitle: "Mjolnr",
-    tagline: "Force forged within.",
+    navTitle: "Mjölnr",
+    tagline: "Power forged within.",
     paragraphs: [
-      "Mjolnr names a forthcoming line of protein bars built for adults who resent compromise: restrained sweetness, deliberate texture, ingredient transparency, and formulations that honour both training desks and fourteen-hour flights.",
+      "Mjölnr names a forthcoming line of protein bars built for adults who resent compromise: restrained sweetness, deliberate texture, ingredient transparency, and formulations that honour both training desks and fourteen-hour flights.",
       "We aren't chasing neon packaging or mascot energy. Expect dark chocolate bitterness when it belongs, earnest protein without chalk, and a brand voice as quiet as a good hotel lobby—confident without shouting.",
       "Product and visuals are still in forge; registrations, retail, and the full story arrive when the formulation meets our standard. Until then, this imprint sits under Influent Publications as proof that utility can remain chic.",
     ],

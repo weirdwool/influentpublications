@@ -28,7 +28,7 @@ export const publications: Publication[] = [
   },
   {
     id: "mjolnr",
-    name: "Mjolnr",
+    name: "Mjölnr",
     url: "https://mjolnr.com",
     tagline: "Power, craft, and legacy",
     description: "Where power meets craft.",
