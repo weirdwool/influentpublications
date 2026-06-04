@@ -116,12 +116,6 @@ export default function ContactSubscribe(): ReactElement {
               </div>
             </div>
 
-            <div className="mx-auto mt-10 max-w-md border-t border-stone-200 pt-6 text-left md:mx-0">
-              <p className="text-[0.82rem] leading-relaxed text-stone-400">
-                Based between Europe and Southeast Asia. We work with
-                brands globally and respond within 48 hours.
-              </p>
-            </div>
           </div>
         </div>
       </div>
