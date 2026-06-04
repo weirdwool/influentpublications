@@ -39,12 +39,6 @@ export default function Footer(): React.ReactElement {
               to="/#contact"
               className="text-sm text-stone-500 hover:text-stone-300 transition-colors"
             >
-              Subscribe
-            </Link>
-            <Link
-              to="/#contact"
-              className="text-sm text-stone-500 hover:text-stone-300 transition-colors"
-            >
               Contact
             </Link>
           </div>

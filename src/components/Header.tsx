@@ -66,9 +66,6 @@ export default function Header(): React.ReactElement {
             </button>
           ))}
           <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
-            Subscribe
-          </button>
-          <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
             Contact
           </button>
         </nav>
@@ -121,9 +118,6 @@ export default function Header(): React.ReactElement {
                     {pub.name}
                   </button>
                 ))}
-                <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
-                  Subscribe
-                </button>
                 <button type="button" onClick={() => scrollTo("contact")} className={navLinkClass}>
                   Contact
                 </button>
